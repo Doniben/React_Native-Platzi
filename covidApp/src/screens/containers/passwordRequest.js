@@ -8,7 +8,8 @@ import {
     View,
     TextInput,
     TouchableOpacity,
-    Platform
+    Platform,
+    SafeAreaView
 } from 'react-native';
 
 export default class PassRequest extends Component {
@@ -19,82 +20,135 @@ export default class PassRequest extends Component {
     }
     render() {
         return (
-            <View style={styles.loginContainer}>
-                <View style={styles.inputView}>
-                    <View style={styles.left}>
-                        <Image 
-                        style={styles.logoTel}
-                        source={require('../../assets/img/phone-2058848.png')}
-                        />
+            <SafeAreaView style={styles.safe}>
+                <View style={styles.headerContainer}>
+                    <View>
+                        <Image
+                            style={styles.logo}
+                            source={require('../../assets/img/01.png')}/>
                     </View>
-                    <View style={styles.right}>
-                        <TextInput
-                            style={styles.inputText}
-                            placeholder='Teléfono'
-                            placeholderTextColor= 'rgb(162, 162, 162)'
-                            value={this.state.mobileNumber}
-                            returnKeyType={'next'}
-                            keyboardType={'phone-pad'}
-                            onChangeText={(mobileNumber) => this.setState({mobileNumber})}
-                            maxLength={10}
-                        />
+                    <View style={styles.tittle}>
+                        <Text><Text style={styles.sectionTitle}>COLOMBIA </Text><Text style={styles.sectionBoldTitle}>UNIDA</Text></Text>
                     </View>
                 </View>
-                <View style={styles.inputView}>
-                    <View style={styles.left}>
-                        <Image 
-                        style={styles.logoTel}
-                        source={require('../../assets/img/user-30.png')}
-                        />
+                <View style={styles.loginContainer}>
+                    <View style={styles.inputView}>
+                        <View style={styles.left}>
+                            <Image 
+                            style={styles.logoTel}
+                            source={require('../../assets/img/phone-2058848.png')}
+                            />
+                        </View>
+                        <View style={styles.right}>
+                            <TextInput
+                                style={styles.inputText}
+                                placeholder='Teléfono'
+                                placeholderTextColor= 'rgb(162, 162, 162)'
+                                value={this.state.mobileNumber}
+                                returnKeyType={'next'}
+                                keyboardType={'phone-pad'}
+                                onChangeText={(mobileNumber) => this.setState({mobileNumber})}
+                                maxLength={10}
+                            />
+                        </View>
                     </View>
-                    <View style={styles.right}>
-                        <TextInput
-                            style={styles.inputText}
-                            placeholder='Edad'
-                            placeholderTextColor= 'rgb(162, 162, 162)'
-                            keyboardType = 'numeric'
-                            onChangeText = {(text) => this.setState({Edad: text})}
-                            value = {this.state.myNumber}
-                            maxLength={2}
-                        />
+                    <View style={styles.inputView}>
+                        <View style={styles.left}>
+                            <Image 
+                            style={styles.logoTel}
+                            source={require('../../assets/img/user-30.png')}
+                            />
+                        </View>
+                        <View style={styles.right}>
+                            <TextInput
+                                style={styles.inputText}
+                                placeholder='Edad'
+                                placeholderTextColor= 'rgb(162, 162, 162)'
+                                keyboardType = 'numeric'
+                                onChangeText = {(text) => this.setState({Edad: text})}
+                                value = {this.state.myNumber}
+                                maxLength={2}
+                            />
+                        </View>
+                    </View>
+                    <View style={styles.inputView}>
+                        <View style={styles.left}>
+                            <Image 
+                            style={styles.logoTel}
+                            source={require('../../assets/img/email-50.png')}
+                            />
+                        </View>
+                        <View style={styles.right}>
+                            <TextInput
+                                style={styles.inputText}
+                                placeholder='Correo electrónico' 
+                                placeholderTextColor= 'rgb(162, 162, 162)'
+                                keyboardType = 'email-address'
+                                onChangeText = {(text) => this.setState({email: text})}/>
+                        </View> 
+                    </View>
+                    <TouchableOpacity style={styles.loginBtn}>
+                        <Text style={styles.loginText}>RESTABLECER CONTRASEÑA</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={{ flexDirection: 'row', justifyContent: 'center', width: '80%'}}>
+                        <CheckBox
+                            checkedIcon={<Image style={styles.checkbox} source={require('../../assets/img/checked-checkbox-50.png')} />}
+                            uncheckedIcon={<Image style={styles.checkbox} source={require('../../assets/img/unchecked-checkbox-50.png')} />}
+                            checked={this.state.checked}
+                            onPress={() => this.setState({checked: !this.state.checked})}/>
+                        <Text style={styles.forgot}>Reenviar mensaje</Text>
+                    </TouchableOpacity>
+                    <View style={styles.registerText}>
+                        <Text style={styles.registerTextWithout}>Entre todos saldremos de esta situación</Text>
                     </View>
                 </View>
-                <View style={styles.inputView}>
-                    <View style={styles.left}>
-                        <Image 
-                        style={styles.logoTel}
-                        source={require('../../assets/img/email-50.png')}
-                        />
-                    </View>
-                    <View style={styles.right}>
-                        <TextInput
-                            style={styles.inputText}
-                            placeholder='Correo electrónico' 
-                            placeholderTextColor= 'rgb(162, 162, 162)'
-                            keyboardType = 'email-address'
-                            onChangeText = {(text) => this.setState({email: text})}/>
-                    </View> 
-                </View>
-                <TouchableOpacity style={styles.loginBtn}>
-                    <Text style={styles.loginText}>RESTABLECER CONTRASEÑA</Text>
-                </TouchableOpacity>
-                <TouchableOpacity style={{ flexDirection: 'row', justifyContent: 'center', width: '80%'}}>
-                    <CheckBox
-                        checkedIcon={<Image style={styles.checkbox} source={require('../../assets/img/checked-checkbox-50.png')} />}
-                        uncheckedIcon={<Image style={styles.checkbox} source={require('../../assets/img/unchecked-checkbox-50.png')} />}
-                        checked={this.state.checked}
-                        onPress={() => this.setState({checked: !this.state.checked})}/>
-                    <Text style={styles.forgot}>Reenviar mensaje</Text>
-                </TouchableOpacity>
-                <View style={styles.registerText}>
-                    <Text style={styles.registerTextWithout}>Entre todos saldremos de esta situación</Text>
-                </View>
-            </View>
+            </SafeAreaView>
         )};
     }
 
 
 const styles = StyleSheet.create({
+    safe: {
+        backgroundColor: 'rgb(45, 45, 68)',
+    },
+    headerContainer: {
+        backgroundColor: 'rgb(45, 45, 68)',
+        justifyContent: 'center', 
+        alignItems: 'center', 
+        width: '100%', 
+        height: 250,
+        marginTop: 20,
+    },
+    logo: {
+        width: 260, 
+        height: 160, 
+        marginTop: Platform.select({
+            ios: 80,
+            android: 20
+        }),
+        padding: 10,
+        paddingBottom: 0,
+        resizeMode: 'contain'
+    },
+    tittle: {
+        marginTop: 10,
+    },
+
+    sectionTitle: {
+        fontSize: 18,
+        fontWeight: '500',
+        color: 'white',
+        paddingTop: 10,
+        textAlign: 'center',
+    },
+
+    sectionBoldTitle: {
+        fontSize: 18,
+        fontWeight: 'bold',
+        color: 'white',
+        paddingTop: 10,
+        textAlign: 'center',
+    },
     loginContainer: {
       flex: 1,
       alignItems: 'center',
@@ -160,6 +214,10 @@ const styles = StyleSheet.create({
       },
       registerTextWithout: {
         color: 'white',
+        paddingBottom: Platform.select({
+            ios: 70,
+            android: 25
+        }),
         marginTop: Platform.select({
             ios: 0,
             android: -10

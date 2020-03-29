@@ -22,6 +22,13 @@ import Login from './src/screens/containers/login'
 import Register from './src/screens/containers/register'
 import PassRequest from './src/screens/containers/passwordRequest'
 import HowTo from './src/screens/containers/howto'
+import Main from './src/screens/containers/main'
+import Creators from './src/screens/containers/creators'
+import ConfirmationPositive from './src/screens/containers/positiveConfirmation'
+import AtentionLines from './src/screens/containers/atentionLines'
+import ConfirmationScreen from './src/screens/containers/confirmationScreen'
+
+
 
 
 type Props = {};
@@ -31,8 +38,7 @@ export default class App extends Component<Props> {
     return (
       <View style={styles.container}>
         <ScrollView>
-          <Header />
-          <HowTo />
+          <ConfirmationPositive />
         </ScrollView>
       </View>
     );
@@ -42,7 +48,6 @@ export default class App extends Component<Props> {
 const styles = StyleSheet.create({
       container: {
         flex: 1,
-        backgroundColor: 'rgb(45, 45, 68)',
       },
     },
   );
